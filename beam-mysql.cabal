@@ -30,7 +30,8 @@ common common-lang
     -Wall -Wcompat -Wincomplete-record-updates
     -Wincomplete-uni-patterns -Wredundant-constraints -Werror
     -fplugin=RecordDotPreprocessor
-    -Wwarn=ambiguous-fields
+  if impl(ghc > 8.10.7)
+    ghc-options: -Wwarn=ambiguous-fields
 
   build-depends:
     , base                     <5

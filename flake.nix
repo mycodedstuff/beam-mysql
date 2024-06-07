@@ -13,10 +13,8 @@
     mysql-haskell.inputs.haskell-flake.follows = "haskell-flake";
 
     ## Use Juspay upstream after PR merged - https://github.com/juspay/beam/pull/21
-    beam.url = "github:arjunkathuria/beam/GHC-927-Upgrade";
-    beam.inputs.haskell-flake.follows = "haskell-flake";
-    beam.inputs.nixpkgs.follows = "nixpkgs";
-
+    beam.url = "github:mycodedstuff/beam/pg-time";
+    beam.flake = false;
   };
 
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
@@ -30,7 +28,6 @@
           projectFlakeName = "beam-mysql";
           basePackages = pkgs.haskell.packages.ghc927;
           imports = [
-            inputs.beam.haskellFlakeProjectModules.output
             inputs.mysql-haskell.haskellFlakeProjectModules.output
           ];
 

@@ -59,8 +59,8 @@ data MySQLDataTypeSyntax =
 
 instance IsSql92DataTypeSyntax MySQLDataTypeSyntax where
   {-# INLINABLE domainType #-}
-  domainType :: Text -> MySQLDataTypeSyntax
-  domainType = DomainType
+  domainType :: Maybe Text -> Text -> MySQLDataTypeSyntax
+  domainType _ = DomainType
   {-# INLINABLE charType #-}
   charType :: Maybe Word -> Maybe Text -> MySQLDataTypeSyntax
   charType = CharType
